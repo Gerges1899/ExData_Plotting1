@@ -1,0 +1,6 @@
+setwd("C:/Users/gerge/Desktop/ExData_Plotting1")
+Data<-read.csv("household_power_consumption.txt",header = T,na.strings = "?",sep = ';',nrows =2075259,check.names = F,stringsAsFactors = F,comment.char = "",quote = '\"')
+data1<-subset(Data,Date %in% c("1/2/2007","2/2/2007"))
+png("plot1.png",width = 480,height = 480)
+hist(data1$Global_active_power,main = "Global Active Power",xlab = "Global Activ Power (kilowatts)",ylab = "frquency",col = "red")
+dev.off()
