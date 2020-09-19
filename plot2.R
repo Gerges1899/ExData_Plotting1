@@ -1,0 +1,8 @@
+setwd("C:/Users/gerge/Desktop/ExData_Plotting1")
+Data<-read.csv("household_power_consumption.txt",header = T,na.strings = "?",sep = ';',nrows =2075259,check.names = F,stringsAsFactors = F,comment.char = "",quote = '\"')
+data1<-subset(Data,Date %in% c("1/2/2007","2/2/2007"))
+datetime <-strptime(paste(data1$Date, data1$Time, sep=" "),"%d/%m/%Y %H:%M:%S")
+data1$Datetime<-as.POSIXct(datetime)
+png("plot2.png",width = 480,height = 480)
+plot(data1$Datetime,data1$Global_active_power,type="l", ylab="Global Active Power (kilowatts)", xlab="")
+dev.off()
